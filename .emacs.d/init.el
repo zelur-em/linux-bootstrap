@@ -39,6 +39,8 @@
 (add-hook 'text-mode-hook 'flycheck-mode)
 
 (setq c-basic-offset 4)
-(setq linum-format "%4d\u2502")
 
 (global-linum-mode)
+(hungry-delete-mode)
+
+(setq linum-format "%4d\u2502")
