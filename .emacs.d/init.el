@@ -56,6 +56,10 @@
 ;(Add-Hook 'prog-mode-hook 'flycheck-mode)
 ;(add-hook 'text-mode-hook 'flycheck-mode)
 
+(require 'doc-mode)
+(add-hook 'c-mode-common-hook doc-mode)
+
+
 (setq c-basic-offset 4)
 
 (global-linum-mode)
