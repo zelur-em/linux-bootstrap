@@ -59,7 +59,6 @@
 (require 'doc-mode)
 (add-hook 'c-mode-common-hook doc-mode)
 
-
 (setq c-basic-offset 4)
 
 (global-linum-mode)
