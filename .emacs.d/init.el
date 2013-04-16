@@ -24,10 +24,19 @@
 
 ;(print 'ac-dictionary-directories)
 
-; a lot of ui auto completion
-; where do i get the fuzzy matching ???
+;; a lot of ui auto completion
+;; where do i get the fuzzy matching ???
 (require 'ido)
-(ido-mode t)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+;; ido like mode for M-x
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; originial M-x command
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev 
@@ -41,11 +50,11 @@
 					 try-complete-lisp-symbol))
 
 (require 'flymake)                                 ; show syntax errors on the fly
+(require 'flymake-cursor)                          ; show error message in minibuffer
 (global-set-key [f3] 'flymake-display-err-menu-for-current-line)
 (global-set-key [f4] 'flymake-goto-next-error)
 (add-hook 'find-file-hook 'flymake-find-file-hook) ; enable flymake for all supported filetypes
 ;(setq flymake-gui-warnings-enabled nil)            ; allow to show the error without X11 support
-(require 'flymake-cursor)                          ; show error message in minibuffer
 
 ;highlight the other bracket
 (show-paren-mode)    ; emacs builtin
