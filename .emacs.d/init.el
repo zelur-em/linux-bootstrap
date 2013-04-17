@@ -24,12 +24,17 @@
 
 ;(print 'ac-dictionary-directories)
 
+
+;; snippet system . always load before hippie expand
+(require 'yasnippet)
+
 ;; a lot of ui auto completion
 ;; where do i get the fuzzy matching ???
 (require 'ido)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
 ;; ido like mode for M-x
 (require 'smex)
 (smex-initialize)
@@ -38,8 +43,10 @@
 ;; originial M-x command
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; hippie expand
 (global-set-key (kbd "M-/") 'hippie-expand)
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev 
+(setq hippie-expand-try-functions-list '(yas/hippie-try-expand
+					 try-expand-dabbrev 
 					 try-expand-dabbrev-all-buffers 
 					 try-expand-dabbrev-from-kill 
 					 try-complete-file-name-partially 
@@ -49,6 +56,7 @@
 					 try-complete-lisp-symbol-partially 
 					 try-complete-lisp-symbol))
 
+;; on the fly syntax checker
 (require 'flymake)                                 ; show syntax errors on the fly
 (require 'flymake-cursor)                          ; show error message in minibuffer
 (global-set-key [f3] 'flymake-display-err-menu-for-current-line)
