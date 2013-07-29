@@ -30,10 +30,14 @@
 
 ;; a lot of ui auto completion
 ;; where do i get the fuzzy matching ???
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;;(require 'ido)
+(require 'flx-ido)
 (ido-mode 1)
+;;(setq ido-everywhere 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+;;(setq ido-enable-flex-matching t)
 
 ;; ido like mode for M-x
 (require 'smex)
@@ -76,12 +80,26 @@
 (require 'doc-mode)
 (add-hook 'c-mode-common-hook doc-mode)
 
-(setq c-basic-offset 4)
+(define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+(eval-after-load "emr" '(emr-initialize))
+
+(setq         c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
 
 (global-linum-mode)
+(setq column-number-mode t)
+; (setq line-number-mode t)
 (hungry-delete-mode)
 
 (setq linum-format "%4d\u2502")
+
+;; Emacs project managaement
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-use-native-indexing t)
+(setq projectile-enable-caching t)
+;;(require 'ffap)
+;;(ffap-bindings)
 
 (setq
    backup-by-copying t                           ; don't clobber symlinks
@@ -91,5 +109,10 @@
    kept-new-versions 6
    kept-old-versions 2
    version-control t)                            ; use versioned backups
-
 ;(setq make-backup-files nil)                    ; WARNING! dissable all backup files
+
+;; set other major mode for specific file extensions
+(add-to-list 'auto-mode-alist '("\\.i\\'" . fundamental-mode)) ; swig config files
+
+;; custom files
+
