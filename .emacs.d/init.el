@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 ;(add-to-list 'load-path ')
 
 (require 'package)
 (setq package-archives '(("gnu"       . "http://elpa.gnu.org/packages/")
+=======
+;(require 'package)
+(package-initialize)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+>>>>>>> Stashed changes
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
@@ -114,6 +120,7 @@
    kept-new-versions 6
    kept-old-versions 2
    version-control t)                            ; use versioned backups
+<<<<<<< Updated upstream
 ;(setq make-backup-files nil)                    ; WARNING! dissable all backup files
 
 ;; set other major mode for specific file extensions
@@ -121,3 +128,18 @@
 
 ;; custom files
 
+=======
+
+<<<<<<< Updated upstream
+;(setq make-backup-files nil)                    ; WARNING! dissable all backup files
+=======
+
+(ido-mode)
+;()
+
+(setq-default c-basic-offset 4)
+(setq-default c-default-style "k&r")
+
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
