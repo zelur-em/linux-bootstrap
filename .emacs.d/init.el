@@ -25,9 +25,11 @@
 ;(print 'ac-dictionary-directories)
 
 ; a lot of ui auto completion
-; where do i get the fuzzy matching ???
-(require 'ido)
-(ido-mode t)
+;(require 'ido)
+;(ido-mode t)
+;(require 'helm)
+(require 'helm-config)
+(helm-mode 1)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev 
@@ -47,6 +49,9 @@
 ;(setq flymake-gui-warnings-enabled nil)            ; allow to show the error without X11 support
 (require 'flymake-cursor)                          ; show error message in minibuffer
 
+(require 'flyspell)
+;(global-)
+
 ;highlight the other bracket
 (show-paren-mode)    ; emacs builtin
 ;(require 'mic-paren) ; modification of show-paren-mode
@@ -62,6 +67,7 @@
 (hungry-delete-mode)
 
 (setq linum-format "%4d\u2502")
+(setq visible-bell t)
 
 (setq
    backup-by-copying t                           ; don't clobber symlinks
